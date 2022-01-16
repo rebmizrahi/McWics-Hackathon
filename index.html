@@ -173,11 +173,15 @@ button.onclick = function() {
 <script>
 
 var map = L.map('map').setView([45.5141, -73.5818], 13);
-L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
 {
-  attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 17,
-  minZoom: 9
+  id: 'mapbox/streets-v11',
+  minZoom: 9,
+  tileSize: 512,
+  zoomOffset: -1,
+  accessToken: 'pk.eyJ1Ijoic2FtaGFuZGFsIiwiYSI6ImNreWc5cDBrcTB0dGoyd3Jzbmx2MHhlaWMifQ.LmqktbZhkWjvg8NMGPcYxA'
 }).addTo(map);
 var marker = L.marker([45.5141, -73.5818],{
 title: 'incident',
