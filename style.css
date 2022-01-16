@@ -9,6 +9,9 @@ body {
 h2 {
     text-align: center;
 }
+.report {
+    display: block;
+}
 #locationtable {
     position: relative;
     width: 50%;
@@ -18,10 +21,14 @@ h2 {
     text-align: center;
     align-content: center;
 }
+#locationbutton {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 #incidenttable{
     position: relative;
-    width: 70%;
-    left: 8%;
+    width: 43%;
+    left: 22%;
     right: 25%;
     align-items: center;
     text-align: center;
@@ -55,7 +62,7 @@ button {
     text-align: center;
     align-self: center;
     align-content: center;
-
+    margin-bottom: 20px;
 }
 .banner{
     width: 100%;
