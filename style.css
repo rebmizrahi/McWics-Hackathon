@@ -28,19 +28,19 @@ h2 {
 #incidenttable{
     position: relative;
     width: 43%;
-    left: 22%;
+    left: 26%;
     right: 25%;
     align-items: center;
     text-align: center;
     align-content: center;
 }
 td {
-    align-self: stretch;
+    align-self: center;
 }
 tr {
     padding-top: 10px;
     padding-bottom: 10px;
-    align-self: stretch;
+    align-self: center;
 }
 button {
     padding: 10px 24px;
@@ -105,11 +105,9 @@ button {
 .report{
     color: #ffffff;
     background: #CFA9BC;
-
+    align-content: center;
+    text-align: center;
 }
-
-
-
 
 .tooltip {
     position: relative;
