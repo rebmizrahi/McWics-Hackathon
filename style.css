@@ -10,7 +10,7 @@ h2 {
     text-align: center;
 }
 .report {
-    display: block;
+    /*display: block;*/
 }
 #locationtable {
     position: relative;
