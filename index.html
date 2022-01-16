@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-compatible" content="ie=edge"/>
+    <title>display attempt</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <title>sheTravels</title>
+</head>
+<body>
+    <div class = "banner">
+        <img src="src/assets/sheTravels.png" alt="logo">
+         <h1> Welcome to sheTravels!</h1>
+         <h3> A map to help women stay safe while travelling </h3>
+    </div>
+    
+    <div class = "map">
+        <h2> Enter your location </h2>
+        <label for="country">Country</label><br>
+        <input type="text" id="country" name="country"><br>
+    
+        <label for="prov">Province or State</label><br>
+        <input type="text" id="prov" name="prov"><br>
+    
+        <label for="city">City</label><br>
+        <input type="text" id="city" name="city"><br>
+    
+        <label for="area">Area or Neighbourhood</label><br>
+        <input type="text" id="area" name="area"><br>
+    
+        <button onclick="getData()" >Submit</button>
+
+        <input type="reset">
+    
+        <p> *** Input map here later *** </p>
+      </div>
+    <canvas id="myChart" width="200" height="100"></canvas>
+    <script>
+        const values = [];
+        const locations = [];
+        const provinces = ["British Columbia ", "Quebec ", "Alberta ", "New Brunswick ", "Nova Scotia ", "Ontario ", "Saskatchewan "];
+        async function getData() {
+            const input = document.getElementById("prov").value;
+            if (document.getElementById("city") && document.getElementById("city").value) {
+                const input = document.getElementById("city").value;
+            }
+            if (input!=null) {
+            const response = await fetch('statcan.csv');
+            const data = await response.text();
+
+            const table = data.split('\n');
+            var curlocation = "";
+            var curvalue = 0;
+            table.forEach(row => {
+                const columns = row.split('","');
+                const location = columns[1];
+                if (location != null && location.includes(input)) { //geo is 1, value is 11 
+                        //provinces.findIndex(location) == -1;     
+                        curlocation = location.replace(/[0-9]|\[|\]/g, '');
+
+                        curvalue += parseInt(columns[11]);
+                        if (!locations.includes(curlocation)) {
+                            locations.push(curlocation);
+                            if (curvalue > 0) values.push(curvalue);
+                            curvalue = 0;
+                        }
+                    
+                    console.log(columns[11]);
+                    
+                }
+            })
+            values.push(curvalue);            
+            console.log(values);
+            console.log(locations);
+            if (provinces.includes(locations[0])) {
+            //if typed in province, display all cities in province, not province itself which appears at index 0
+                values.splice(0, 1);
+                locations.splice(0, 1);
+            }
+        }
+        
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: locations,
+                datasets: [{
+                    label: 'Danger level',
+                    data: values,
+                    backgroundColor: [
+                        // 'rgba(255, 99, 132, 0.2)',
+                        // 'rgba(54, 162, 235, 0.2)',
+                        // 'rgba(255, 206, 86, 0.2)',
+                        // 'rgba(75, 192, 192, 0.2)',
+                        // 'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        // 'rgba(255, 99, 132, 1)',
+                        // 'rgba(54, 162, 235, 1)',
+                        // 'rgba(255, 206, 86, 1)',
+                        // 'rgba(75, 192, 192, 1)',
+                        // 'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                                callback: function(label, index, labels) {
+                                switch (label) {
+                                    case 0:
+                                        return '0';
+                                    case 1500:
+                                        return '1';
+                                    case 3000:
+                                        return '2';
+                                    case 4500:
+                                        return '3';
+                                    case 6000:
+                                        return '4';
+                                    case 7500:
+                                        return '5';
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        });
+    }
+    </script>
+
+
+
+      <div class = "report">
+        <h2> Report a crime for this area </h2>
+        <h3> Rank level of crime:</h3>
+    
+        <input type="radio" id="level1" name="level" value="level1">
+        <label for="level1">Level 1</label><br>
+    
+        <input type="radio" id="level2" name="level" value="level2">
+        <label for="level2">Level 2</label><br>
+    
+        <input type="radio" id="level3" name="level" value="level3">
+        <label for="level3">Level 3</label><br>
+    
+        <input type="radio" id="level4" name="level" value="level4">
+        <label for="level4">Level 4</label><br>
+    
+        <input type="radio" id="level5" name="level" value="level5">
+        <label for="level5">Level 5</label><br>
+    
+        <div class="tooltip">Hover over me
+          <span class="tooltiptext">Tooltip text</span>
+        </div>
+    
+        <h3>Were you: </h3>
+        <input type="radio" id="alone" name="company" value="alone">
+        <label for="alone">Alone</label><br>
+    
+        <input type="radio" id="withsomeone" name="company" value="withsomeone">
+        <label for="withsomeone">With someone else</label><br>
+    
+        <h3>It was: </h3>
+        <input type="radio" id="day" name="time" value="day">
+        <label for="day">Light outside</label><br>
+    
+        <input type="radio" id="night" name="time" value="night">
+        <label for="night">Dark outside</label><br>
+    
+        <input type="submit" value="Submit">
+        <input type="reset">
+    
+      </div>
+    
+    
+      <div class = "footer">
+        <p>Made by Reb, Sam and Rina for McWics 2022 :)</p>
+      </div>
+      
+   
+ 
+</body>
+</html>

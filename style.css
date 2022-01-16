@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+.opensans {
+    font-family: "Open Sans", sans-serif;
+}
+body {
+    margin: 60px;
+    color: #CFA9BC;
+    background: #ffffff;
+}
+.banner{
+    color: #131010;
+    background: #CFA9BC;
+    text-align: center;
+    margin: 40px;
+    padding: 20px 20px;
+}
+
+.map{
+    color: #ffffff;
+    background: #CFA9BC;
+    margin: 40px;
+    padding: 20px 20px;
+}
+
+.report{
+    color: #ffffff;
+    background: #CFA9BC;
+    margin: 40px;
+    padding: 25px 25px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.footer {
+    background: #CFA9BC;
+    margin: 40px;
+    padding: 20px 20px;
+ }
+
+ .footer p{
+     color: #ffffff;
+     text-align: right;
+}
