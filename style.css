@@ -3,25 +3,54 @@
     font-family: "Open Sans", sans-serif;
 }
 body {
-    margin: 60px;
+    
     color: #CFA9BC;
     background: #ffffff;
 }
-.banner{
-    color: #131010;
-    background: #CFA9BC;
+h2 {
     text-align: center;
-    margin: 40px;
-    padding: 20px 20px;
+}
+table {
+    position: relative;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+.location_buttons {
+    align-items: center;
+   
 }
 
+.banner{
+    width: 100%;
+    color: #131010;
+    background: #CFA9BC;
+    fill-opacity: 20%;
+    text-align: center;
+}
+
+#title{
+    padding-top: 25px;
+    margin-bottom: -15px;
+}
+#subtitle {
+    margin-top: 0pt;
+    padding-bottom: 35px;
+
+}
 .map{
     color: #ffffff;
     background: #CFA9BC;
     margin: 40px;
     padding: 20px 20px;
 }
-
+#map { 
+    margin-top: 30px;
+    height: 250px; 
+}
 .report{
     color: #ffffff;
     background: #CFA9BC;

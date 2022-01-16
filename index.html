@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-compatible" content="ie=edge"/>
@@ -12,30 +16,48 @@
 <body>
     <div class = "banner">
         <img src="src/assets/sheTravels.png" alt="logo">
-         <h1> Welcome to sheTravels!</h1>
-         <h3> A map to help women stay safe while travelling </h3>
+         <h1 id="title">sheTravels</h1>
+         <p id="subtitle">Making safe travel a little easier.</p>
     </div>
     
-    <div class = "map">
-        <h2> Enter your location </h2>
-        <label for="country">Country</label><br>
-        <input type="text" id="country" name="country"><br>
-    
-        <label for="prov">Province or State</label><br>
-        <input type="text" id="prov" name="prov"><br>
-    
-        <label for="city">City</label><br>
-        <input type="text" id="city" name="city"><br>
-    
-        <label for="area">Area or Neighbourhood</label><br>
-        <input type="text" id="area" name="area"><br>
-    
-        <button onclick="getData()" >Submit</button>
+        <table>
+            <tr>
+                <h2> Enter your location </h2>
+            </tr>  
+            <tr>
+                <td><label for="country">Country</label><br></td>
+                <td> <label for="prov">Province or State</label></td>
+                <td><label for="city">City</label></td>
+            </tr> 
+            <tr>
+                <td><input type="text" id="country" name="country"></td>
+                <td><input type="text" id="prov" name="prov"></td>
+                <td><input type="text" id="city" name="city"></td>
+            </tr>
+            <tr>
+                <td></td><td><button onclick="getData()">Submit</button></td>
+            </tr>
+       
+        </table>
 
-        <input type="reset">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <div id="map"></div>
     
-        <p> *** Input map here later *** </p>
-      </div>
+
+    <script>
+
+var map = L.map('map').setView([42.35, -71.08], 13);
+L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+    {
+      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+      maxZoom: 17,
+      minZoom: 9
+    }).addTo(map);
+var marker = L.marker([51.5, -0.09]).addTo(map);
+        
+    </script>
     <canvas id="myChart" width="200" height="100"></canvas>
     <script>
         const values = [];
@@ -95,7 +117,7 @@
                         // 'rgba(255, 206, 86, 0.2)',
                         // 'rgba(75, 192, 192, 0.2)',
                         // 'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(207, 169, 188, 1)'
                     ],
                     borderColor: [
                         // 'rgba(255, 99, 132, 1)',
