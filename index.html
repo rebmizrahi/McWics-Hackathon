@@ -42,24 +42,7 @@
 <script>
     var button = document.getElementById('locationbutton'); 
 
-button.onclick = function() {
-    var div = document.getElementById('report');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-    }
-    else {
-        div.style.display = 'block';
-    }
-    var div2 = document.getElementById('map');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-    }
-    else {
-        div.style.display = 'block';
-    }
 
-
-};
 </script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -201,10 +184,6 @@ marker.bindPopup("This is how your reported incidents will appear to others.").o
         <label for="level2"> 2&nbsp&nbsp</label>
     <input type="radio" id="level3" name="level" value="level3">
         <label for="level3"> 3&nbsp&nbsp</label>
-    <input type="radio" id="level4" name="level" value="level4">
-            <label for="level4"> 4&nbsp&nbsp</label>
-        <input type="radio" id="level5" name="level" value="level5">
-            <label for="level5"> 5&nbsp&nbsp</label>
     
     </td>
         <td><input type="radio" id="alone" name="company" value="alone">

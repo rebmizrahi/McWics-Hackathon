@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-.opensans {
+* {
     font-family: "Open Sans", sans-serif;
 }
 body {
@@ -8,9 +8,6 @@ body {
 }
 h2 {
     text-align: center;
-}
-.report {
-    /*display: block;*/
 }
 #locationtable {
     position: relative;
