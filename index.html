@@ -172,14 +172,14 @@ button.onclick = function() {
 
 <script>
 
-var map = L.map('map').setView([42.35, -71.08], 13);
+var map = L.map('map').setView([45.5141, -73.5818], 13);
 L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
 {
   attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
   maxZoom: 17,
   minZoom: 9
 }).addTo(map);
-var marker = L.marker([42.35, -71.08],{
+var marker = L.marker([45.5141, -73.5818],{
 title: 'incident',
 }).addTo(map);
 marker.bindPopup("This is how your reported incidents will appear to others.").openPopup();
