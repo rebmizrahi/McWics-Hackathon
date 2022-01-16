@@ -192,7 +192,7 @@ marker.bindPopup("This is how your reported incidents will appear to others.").o
 
       <div class = "report">
          <h2> Report an incident for this area anonymously </h2>
-        <table id="incidenttable">
+        <table id="incidenttable" cellpadding="5" cellspacing="5">
             <tr>
                 <td><h3> Rank level of crime:</h3></td>
                  <td><h3>Were you: </h3></td>
@@ -238,6 +238,14 @@ marker.bindPopup("This is how your reported incidents will appear to others.").o
     </tr>
 </table>
        
+      <style>
+          td:nth-child(2) {
+            border-right: 10px solid transparent;
+             -webkit-background-clip: padding;
+             -moz-background-clip: padding;
+            background-clip: padding-box;
+          }
+      </style>
     
 
       </div>
