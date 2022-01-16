@@ -47,7 +47,9 @@ button {
     border: 2px solid #ece1eb;
     align-self: center;
   }
-  
+  #subtext {
+      font-size: 8px;
+  }
   button:hover {
     background-color: #ece1eb;
     color: gray;

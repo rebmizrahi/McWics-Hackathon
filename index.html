@@ -25,14 +25,17 @@
                 <h2> Enter your destination </h2>
             </tr>  
             <tr>
-                <td><label for="country">Country</label><br></td>
-                <td> <label for="prov">Province or State</label></td>
+                <td><label for="country">Country  *</label><br></td>
+                <td> <label for="prov">Province or State  *</label></td>
                 <td><label for="city">City</label></td>
             </tr> 
             <tr>
                 <td><input type="text" id="country" name="country"></td>
                 <td><input type="text" id="prov" name="prov"></td>
                 <td><input type="text" id="city" name="city"></td>
+            </tr>
+            <tr>
+                <td></td><td><p id="subtext">* required field</p></td>
             </tr>
             <tr>
                 <td></td><td><button id="locationbutton" onclick="getData()">Submit</button></td>
@@ -203,7 +206,7 @@ marker.bindPopup("This is how your reported incidents will appear to others.").o
         </td>
         <td>
  <input type="radio" id="night" name="time" value="night">
-        <label for="night">&nbsp Dark outside</label><br>
+        <label for="night">Dark outside</label><br>
         </td>
 
     <tr><td>
