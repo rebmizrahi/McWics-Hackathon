@@ -20,9 +20,9 @@
          <p id="subtitle">Making safe travel a little easier.</p>
     </div>
     
-        <table>
+        <table id="locationtable">
             <tr>
-                <h2> Enter your location </h2>
+                <h2> Enter your destination </h2>
             </tr>  
             <tr>
                 <td><label for="country">Country</label><br></td>
@@ -43,21 +43,7 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-        <div id="map"></div>
-    
-
-    <script>
-
-var map = L.map('map').setView([42.35, -71.08], 13);
-L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-    {
-      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-      maxZoom: 17,
-      minZoom: 9
-    }).addTo(map);
-var marker = L.marker([51.5, -0.09]).addTo(map);
-        
-    </script>
+       
     <canvas id="myChart" width="200" height="100"></canvas>
     <script>
         const values = [];
@@ -125,7 +111,7 @@ var marker = L.marker([51.5, -0.09]).addTo(map);
                         // 'rgba(255, 206, 86, 1)',
                         // 'rgba(75, 192, 192, 1)',
                         // 'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        //'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -160,48 +146,75 @@ var marker = L.marker([51.5, -0.09]).addTo(map);
     }
     </script>
 
+<div id="map"></div>
+    
 
+<script>
+
+var map = L.map('map').setView([42.35, -71.08], 13);
+L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+{
+  attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+  maxZoom: 17,
+  minZoom: 9
+}).addTo(map);
+var marker = L.marker([42.35, -71.08],{
+title: 'incident',
+}).addTo(map);
+marker.bindPopup("This is how your reported incidents will appear to others.").openPopup();
+    
+</script>
 
       <div class = "report">
-        <h2> Report a crime for this area </h2>
-        <h3> Rank level of crime:</h3>
+         <h2> Report an incident for this area anonymously </h2>
+        <table id="incidenttable">
+            <tr>
+                <td><h3> Rank level of crime:</h3></td>
+                 <td><h3>Were you: </h3></td>
+                <td><h3>It was: </h3></td>
+            </tr>
+       <tr>
+         <td><input type="radio" id="level1" name="level" value="level1">
+        <label for="level1">&nbsp&nbsp&nbsp 1</label>
+        <input type="radio" id="level2" name="level" value="level2">
+        <label for="level2"> 2</label>
+    <input type="radio" id="level3" name="level" value="level3">
+        <label for="level3"> 3</label>
+    <input type="radio" id="level4" name="level" value="level4">
+            <label for="level4"> 4</label>
+        <input type="radio" id="level5" name="level" value="level5">
+            <label for="level5"> 5</label>
     
-        <input type="radio" id="level1" name="level" value="level1">
-        <label for="level1">Level 1</label><br>
-    
-        <input type="radio" id="level2" name="level" value="level2">
-        <label for="level2">Level 2</label><br>
-    
-        <input type="radio" id="level3" name="level" value="level3">
-        <label for="level3">Level 3</label><br>
-    
-        <input type="radio" id="level4" name="level" value="level4">
-        <label for="level4">Level 4</label><br>
-    
-        <input type="radio" id="level5" name="level" value="level5">
-        <label for="level5">Level 5</label><br>
-    
-        <div class="tooltip">Hover over me
-          <span class="tooltiptext">Tooltip text</span>
-        </div>
-    
-        <h3>Were you: </h3>
-        <input type="radio" id="alone" name="company" value="alone">
-        <label for="alone">Alone</label><br>
-    
-        <input type="radio" id="withsomeone" name="company" value="withsomeone">
-        <label for="withsomeone">With someone else</label><br>
-    
-        <h3>It was: </h3>
-        <input type="radio" id="day" name="time" value="day">
+    </td>
+        <td><input type="radio" id="alone" name="company" value="alone">
+        <label for="alone">Alone</label><br></td>
+    <td>
+        <input type="radio" id="day" name="time" value="day">
         <label for="day">Light outside</label><br>
-    
-        <input type="radio" id="night" name="time" value="night">
+    </td>
+    </tr>
+    <tr>
+        <td>
+    
+        </td>
+        <td>
+ <input type="radio" id="withsomeone" name="company" value="withsomeone">
+        <label for="withsomeone">With someone else</label><br>
+        </td>
+        <td>
+ <input type="radio" id="night" name="time" value="night">
         <label for="night">Dark outside</label><br>
+        </td>
+
+    <tr><td>
+
+    </td>
+        <td><button id="submit" type="submit">Submit</button> </td>
+    </tr>
+</table>
+       
     
-        <input type="submit" value="Submit">
-        <input type="reset">
-    
+
       </div>
     
     
