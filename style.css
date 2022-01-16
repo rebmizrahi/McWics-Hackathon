@@ -25,6 +25,9 @@ h2 {
     margin-top: 10px;
     margin-bottom: 30px;
 }
+#reporttitle {
+    margin-bottom: -15px;
+}
 #incidenttable{
     position: relative;
     width: 43%;
@@ -101,6 +104,7 @@ button {
 #map { 
     margin: 50px 50px 50px 50px;
     height: 250px; 
+
 }
 .report{
     color: #ffffff;

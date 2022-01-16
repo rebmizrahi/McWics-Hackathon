@@ -44,8 +44,6 @@
         </table>
 <script>
     var button = document.getElementById('locationbutton'); 
-
-
 </script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -153,6 +151,7 @@
     }
     </script>
 
+<div id="all">
 <div id="map"></div>
     
 
@@ -173,11 +172,21 @@ var marker = L.marker([45.5141, -73.5818],{
 title: 'incident',
 }).addTo(map);
 marker.bindPopup("This is how your reported incidents will appear to others.").openPopup();
+
+const city = document.getElementById("city").value;
+function addMarker() {
+if (city == "Outremont") {
+                var newmarker = L.marker([45.514285, -73.609011],{
+                title: 'incident',
+                }).addTo(map);
+                newmarker.bindPopup("New submission.").openPopup();
+    }
+}
     
 </script>
 
       <div class = "report">
-         <h2> Report an incident for this area anonymously </h2>
+         <h2 id="reporttitle"> Report an incident for this area anonymously </h2>
         <table id="incidenttable" cellpadding="5" cellspacing="5">
             <tr>
                 <td><h3> Rank level of crime:</h3></td>
@@ -216,13 +225,12 @@ marker.bindPopup("This is how your reported incidents will appear to others.").o
     <tr><td>
 
     </td>
-        <td><button id="submit" type="submit">Submit</button> </td>
+        <td><button id="submit" onclick="addMarker()" type="submit">Submit</button> </td>
     </tr>
 </table>
-
       </div>
     
-    
+</div>
       <div class = "footer">
         <img src="logo.png" alt="logo">
         <p>Made by Reb, Sam and Rina for McWics 2022 :)</p>
