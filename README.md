@@ -1,4 +1,4 @@
-# rebmizrahi.github.io
+
 McWics Hackathon submission 2022 <br>
 **Note that this is a prototype that only works for Canada! We hope to find more databases with information about all countries, but for the purpose of this hackathon, we centered it on the statscan database**
 
